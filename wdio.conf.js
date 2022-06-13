@@ -53,7 +53,7 @@ exports.config = {
   capabilities: [
     {
       platformName: 'Android',
-      'appium:app': 'D:/haцкер stuff/appium_js/app/ApiDemos-debug.apk',
+      'appium:app': 'D:/haцкер stuff/JS/appium-js/app/ApiDemos-debug.apk',
       'appium:deviceName': 'Pixel 2',
       'appium:platformVersion': '12.0',
       'sauce:options': {
