@@ -48,6 +48,10 @@ class Dialog {
   get repeatAlarmBtn() {
     return $('//android.widget.Button[@content-desc="Repeat alarm"]')
   }
+
+  get orientation() {
+    return driver.getOrientation()
+  }
 }
 
 module.exports = new Dialog()
