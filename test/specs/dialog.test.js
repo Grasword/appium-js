@@ -7,6 +7,7 @@ describe('Dialog', () => {
     await dialog.alertDialogBtn.click()
     await dialog.textEntryDialogBtn.click()
 
+    await dialog.userNameField.addValue('Hi There')
     await dialog.userNameField.clearValue()
     await dialog.userNameField.addValue('Hello There')
     await dialog.passwordField.clearValue()
@@ -14,5 +15,7 @@ describe('Dialog', () => {
 
     const text = await dialog.userNameField.getText()
     expect(text).equal('Hello There')
+
+    await dialog.dialogOkBtn.click()
   })
 })
