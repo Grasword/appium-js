@@ -52,6 +52,14 @@ class Dialog {
   get orientation() {
     return driver.getOrientation()
   }
+
+  weekdayCheckbox(index) {
+    return $(`//android.widget.CheckedTextView[@index="${index}"]`)
+  }
+
+  isChecked(index) {
+    return this.weekdayCheckbox(index).getAttribute('checked')
+  }
 }
 
 module.exports = new Dialog()
