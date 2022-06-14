@@ -28,4 +28,18 @@ describe('Dialog', () => {
     await driver.saveScreenshot('./screenshots/portrait.png')
     expect(await dialog.orientation).equal('PORTRAIT')
   })
+
+  it('Verify the repeat alarm option has attribute checked set to true when selected', async () => {
+    await dialog.appBtn.click()
+    await dialog.alertDialogBtn.click()
+    await dialog.repeatAlarmBtn.click()
+
+    const text = await dialog.weekdayCheckbox(0).getText()
+    expect(text).equal('Every Monday')
+
+    expect(await dialog.isChecked(0)).equal('false')
+
+    await dialog.weekdayCheckbox(0).click()
+    expect(await dialog.isChecked(0)).equal('true')
+  })
 })
