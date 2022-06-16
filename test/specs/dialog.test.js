@@ -42,4 +42,33 @@ describe('Dialog', () => {
     await dialog.weekdayCheckbox(0).click()
     expect(await dialog.isChecked(0)).equal('true')
   })
+
+  it('Verify isEnabled & isDisplayed', async () => {
+    await dialog.viewBtn.click()
+    await driver.touchAction([
+      { action: 'press', x: 500, y: 1400 },
+      { action: 'moveTo', x: 500, y: 300 },
+      'release',
+      { action: 'press', x: 500, y: 1400 },
+      { action: 'moveTo', x: 500, y: 300 },
+      'release',
+      { action: 'press', x: 500, y: 1400 },
+      { action: 'moveTo', x: 500, y: 300 },
+      'release'
+    ])
+
+    await dialog.tabsBtn.click()
+    await dialog.contentByIdBtn.click()
+
+    for await (const tab of dialog.tabs) {
+      await tab.click()
+
+      expect(await tab.isEnabled()).equal(true)
+      expect(await tab.isDisplayed()).equal(true)
+    }
+  })
+
+  afterEach(() => {
+    driver.reset()
+  })
 })
